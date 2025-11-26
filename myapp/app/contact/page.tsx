@@ -2,10 +2,9 @@
 
 import Contact from '@/components/Contact'
 
-function page() {
+export default function page() {
   return (
     <div><Contact/></div>
   )
 }
 
-export default page
