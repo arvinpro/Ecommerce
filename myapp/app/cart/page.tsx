@@ -1,4 +1,5 @@
-"use client"
+'use client';
+
 import CartPage from "@/components/Carts"
 
 function page() {
