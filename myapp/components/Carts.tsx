@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import { Suspense } from "react";
 
 interface CartItem {
   id: number;
@@ -17,19 +18,19 @@ interface CartItem {
   size: string;
 }
 
-export default function CartPage() {
+
+function CartContent() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const searchParams = useSearchParams();
   const cartId = searchParams.get("cartId");
   
   const router = useRouter();
 
-  //select items lai billing ma redirect gareko xa
   const handleCheckout = (item: CartItem) => {
-  localStorage.setItem("selectedItem", JSON.stringify(item));
-  toast.success("Redirecting to checkout...");
-  router.push("/billing");
-};
+    localStorage.setItem("selectedItem", JSON.stringify(item));
+    toast.success("Redirecting to checkout...");
+    router.push("/billing");
+  };
 
   useEffect(() => {
     const cartId = localStorage.getItem("cartId");
@@ -37,7 +38,6 @@ export default function CartPage() {
     const items = JSON.parse(localStorage.getItem(`cart_${cartId}`) || "[]");
     setCartItems(items);
   }, []);
- 
 
   const handleQuantityChange = (id: number, delta: number) => {
     const cartId = localStorage.getItem("cartId");
@@ -148,7 +148,7 @@ export default function CartPage() {
             <Separator className="bg-gray-200 h-px" />
             <p>Total: Rs {total}</p>
             <button
-        onClick={() => handleCheckout(cartItems[0])}
+              onClick={() => handleCheckout(cartItems[0])}
               className="bg-red-400 w-full py-2 rounded text-white font-semibold hover:scale-105 transition"
             >
               Proceed to Checkout
@@ -165,7 +165,7 @@ export default function CartPage() {
             Return to Shop
           </button>
           <button
-            onClick={() => setCartItems(cartItems)} // optional: refresh cart
+            onClick={() => setCartItems(cartItems)}
             className="bg-red-400 p-3 rounded text-white font-semibold hover:scale-105 transition w-full md:w-auto"
           >
             Update Cart
@@ -173,5 +173,14 @@ export default function CartPage() {
         </div>
       </div>
     </section>
+  );
+}
+
+
+export default function CartPage() {
+  return (
+    <Suspense fallback={<div className="py-12 text-center">Loading cart...</div>}>
+      <CartContent />
+    </Suspense>
   );
 }
