@@ -5,11 +5,11 @@ import { Facebook, Instagram, Twitter, Linkedin, SendHorizonal } from "lucide-re
 function Footer() {
   return (
     <footer className="bg-black text-white">
-      {/* Main Footer */}
+
       <div className="bg-linear-to-r from-[#0f172a] to-black py-16 px-6 md:px-10 lg:px-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8">
           
-          {/* Exclusive / Subscribe */}
+
           <div className="space-y-6">
             <h1 className="text-2xl md:text-3xl font-bold">Exclusive</h1>
             <p className="text-xl font-medium">Subscribe</p>
@@ -27,7 +27,7 @@ function Footer() {
             </div>
           </div>
 
-          {/* Support */}
+        
           <div className="space-y-4">
             <h2 className="text-xl md:text-2xl font-bold">Support</h2>
             <div className="space-y-2 text-sm md:text-base opacity-90">
@@ -37,7 +37,7 @@ function Footer() {
             </div>
           </div>
 
-          {/* Account */}
+
           <div className="space-y-4">
             <h2 className="text-xl md:text-2xl font-bold">Account</h2>
             <ul className="space-y-2 text-sm md:text-base opacity-90">
@@ -49,7 +49,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links */}
+   
           <div className="space-y-4">
             <h2 className="text-xl md:text-2xl font-bold">Quick Link</h2>
             <ul className="space-y-2 text-sm md:text-base opacity-90">
@@ -60,7 +60,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Download App & Social */}
+   
           <div className="space-y-6">
             <h2 className="text-xl md:text-2xl font-bold">Download App</h2>
             <p className="text-xs md:text-sm text-gray-400">Save $3 with App New User Only</p>
@@ -101,7 +101,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* Bottom Copyright */}
+    
       <div className="bg-black/90 py-6 text-center text-gray-400 text-sm border-t border-gray-800">
         <p>&copy; Copyright Rimel 2022. All rights reserved</p>
       </div>

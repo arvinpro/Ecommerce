@@ -111,28 +111,26 @@ export default function ProductSections({ onCategorySelect }: CategoryProps) {
           </div>
         </div>
 
-    
         <Slider ref={sliderRef} {...settings} className="mt-19">
           {categories.map((cat, i) => {
             const Icon = cat.icon;
             return (
               <div
-  key={i}
-  className="px-2"
-  onClick={() => onCategorySelect(cat.name)}
->
-  <div className="group cursor-pointer text-center">
-    <div className="flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-gray-200 hover:bg-red-400 text-white">
-      <div className="p-4 bg-gray-100 rounded-full mb-4 group-hover:bg-red-50 transition-colors">
-        <Icon className="w-8 h-8 text-gray-700 group-hover:text-red-600" />
-      </div>
-      <p className="text-sm font-medium text-gray-800 group-hover:text-white">
-        {cat.name}
-      </p>
-    </div>
-  </div>
-</div>
-
+                key={i}
+                className="px-2"
+                onClick={() => onCategorySelect(cat.name)}
+              >
+                <div className="group cursor-pointer text-center">
+                  <div className="flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-gray-200 hover:bg-red-400 text-white">
+                    <div className="p-4 bg-gray-100 rounded-full mb-4 group-hover:bg-red-50 transition-colors">
+                      <Icon className="w-8 h-8 text-gray-700 group-hover:text-red-600" />
+                    </div>
+                    <p className="text-sm font-medium text-gray-800 group-hover:text-white">
+                      {cat.name}
+                    </p>
+                  </div>
+                </div>
+              </div>
             );
           })}
         </Slider>
