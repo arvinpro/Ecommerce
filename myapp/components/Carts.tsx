@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 import { Separator } from "@radix-ui/react-separator";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
-import { Suspense } from "react";
 
 interface CartItem {
   id: number;
@@ -18,13 +16,10 @@ interface CartItem {
   size: string;
 }
 
-
-function CartContent() {
+export default function CartPage() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const searchParams = useSearchParams();
-  const cartId = searchParams.get("cartId");
-  
   const router = useRouter();
+
 
   const handleCheckout = (item: CartItem) => {
     localStorage.setItem("selectedItem", JSON.stringify(item));
@@ -173,14 +168,5 @@ function CartContent() {
         </div>
       </div>
     </section>
-  );
-}
-
-
-export default function CartPage() {
-  return (
-    <Suspense fallback={<div className="py-12 text-center">Loading cart...</div>}>
-      <CartContent />
-    </Suspense>
   );
 }
